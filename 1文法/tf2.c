@@ -1,0 +1,46 @@
+#include<stdio.h>
+const int cl[5] = {}, cL2_[3] = {};
+const int cl1[3] = {0, 1, 2};
+const int cl3[3][2] = {{1, 2}, {3, 4}, {5, 6}};
+const int cl_4[3][2] = {{},{}};
+
+//int ll[5] = {1, 2, 3};
+//int ll_2[3] = {}, lL3[3] = {2, 3, 4}, ll4_[5] = {}; 
+
+int main(){
+	const int l[5] = {};
+	const int l1[3] = {1, 2, 3}, LL_1_[5] = {};
+//	const int l2[3] = {cl1[2], cl1[1], cl1[0]};
+//	const int l2[3] = {l1[2], l1[1], l1[0]};
+	const int l2[3] = {3, 2, 1};
+	const int l3[3][2] = {{1, 2}, {3, 4}, {5, 6}};
+	const int l4[3][2] = {{},{}};
+	
+	int list[5];
+//	int list1[3] = {1, 2, 3}, list11[5]={l3[2][1], l3[2][0], l3[1][1], l3[1][0]};
+	int list1[3] = {1, 2, 3}, list11[5]={6, 5, 4, 3, 2};
+//	int list2[3] = {list1[2]+list1[1], list1[1]+list1[0], list1[0]+list1[2]};
+	int list2[3] = {5, 3, 4};
+	int list3[3][2] = {{1, 2}, {3, 4}, {5, 6}};
+	int list4[3][2];
+	
+	int a = cl3[1][1], b = list3[1][1];
+	
+	printf("20373420\n");
+	int i = 0; 
+	while(1) {
+		printf("l2[%d]: %d; l3[%d]: %d\n", i, l2[i], i, l3[i][0]);
+		i = i + 1;
+		if(i == 3){
+			break;
+		}
+	}
+	i = 0;
+	while(i < 3) {
+		printf("list2[%d]: %d; list11[%d]: %d\n", i, list2[i], i, list11[i]);
+		i = i + 1;
+	}
+	printf("a = %d, b = %d", a, b); 
+	return 0;
+}
+
