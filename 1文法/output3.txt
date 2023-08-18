@@ -1,4 +1,0 @@
-20373420
-sum of list1 is 15, sum of list2 is 12
-sum of the first line of list4 is 3
-a = 5, b = 13
