@@ -1,0 +1,489 @@
+VAR 0_MAX
+PUSH 100010
+VAR 0_p
+PUSH 100010
+ARRVAR 0_p, 1
+PLACEHOLDER 0_p, 1
+FUNC @judge_prime:
+PARA 1_num, 0
+PARA 1_prime_count, 0
+VAR 1_i
+PUSH 1
+label_if_1: 
+PUSH 1_num
+VALUE 1_num, 0
+PUSH 2
+CMPNE 
+label_cond_0_5: 
+JZ label_else_2
+label_if_block_4: 
+label_if_6: 
+PUSH 1_num
+VALUE 1_num, 0
+PUSH 2
+MOD 
+PUSH 0
+CMPEQ 
+label_cond_0_10: 
+JZ label_else_7
+label_if_block_9: 
+PUSH 0
+RET 1
+JMP label_if_end_8
+label_else_7: 
+label_if_end_8: 
+JMP label_if_end_3
+label_else_2: 
+label_if_end_3: 
+label_while_11: 
+PUSH 1_i
+VALUE 1_i, 0
+PUSH 1_prime_count
+VALUE 1_prime_count, 0
+CMPLT 
+label_cond_0_14: 
+JZ label_while_end_12
+label_while_block_13: 
+label_if_15: 
+PUSH 0_p
+PUSH 1_i
+VALUE 1_i, 0
+VALUE 0_p, 0
+PUSH 0_p
+PUSH 1_i
+VALUE 1_i, 0
+VALUE 0_p, 0
+MUL 
+PUSH 1_num
+VALUE 1_num, 0
+CMPGT 
+label_cond_0_19: 
+JZ label_else_16
+label_if_block_18: 
+JMP label_while_end_12
+JMP label_if_end_17
+label_else_16: 
+label_if_end_17: 
+label_if_20: 
+PUSH 1_num
+VALUE 1_num, 0
+PUSH 0_p
+PUSH 1_i
+VALUE 1_i, 0
+VALUE 0_p, 0
+MOD 
+PUSH 0
+CMPNE 
+label_cond_0_24: 
+JZ label_else_21
+label_if_block_23: 
+PUSH 1_i
+ADDRESS 1_i, 0
+PUSH 1_i
+VALUE 1_i, 0
+PUSH 2
+ADD 
+POP 1_i
+JMP label_if_end_22
+label_else_21: 
+PUSH 0
+RET 1
+label_if_end_22: 
+JMP label_while_11
+label_while_end_12: 
+PUSH 1
+RET 1
+RET 0
+ENDFUNC 
+FUNC @cal_prime:
+PARA 6_m, 0
+VAR 6_prime_count
+PUSH 1
+label_if_25: 
+PUSH 6_m
+VALUE 6_m, 0
+PUSH 2
+CMPLT 
+label_cond_0_29: 
+JZ label_else_26
+label_if_block_28: 
+PUSH 0
+RET 1
+JMP label_if_end_27
+label_else_26: 
+label_if_end_27: 
+label_if_30: 
+PUSH 6_m
+VALUE 6_m, 0
+PUSH 2
+CMPEQ 
+label_cond_0_34: 
+JZ label_else_31
+label_if_block_33: 
+PUSH 6_prime_count
+VALUE 6_prime_count, 0
+RET 1
+JMP label_if_end_32
+label_else_31: 
+VAR 7_potential_prime
+PUSH 3
+POS 
+label_while_35: 
+PUSH 7_potential_prime
+VALUE 7_potential_prime, 0
+PUSH 6_m
+VALUE 6_m, 0
+CMPLE 
+label_cond_0_38: 
+JZ label_while_end_36
+label_while_block_37: 
+label_if_39: 
+PUSH 7_potential_prime
+VALUE 7_potential_prime, 0
+RPARA 0
+PUSH 6_prime_count
+VALUE 6_prime_count, 0
+RPARA 0
+$judge_prime
+label_cond_0_43: 
+JZ label_else_40
+label_if_block_42: 
+PUSH 0_p
+PUSH 6_prime_count
+VALUE 6_prime_count, 0
+ADDRESS 0_p, 0
+PUSH 7_potential_prime
+VALUE 7_potential_prime, 0
+POP 0_p
+PUSH 6_prime_count
+ADDRESS 6_prime_count, 0
+PUSH 6_prime_count
+VALUE 6_prime_count, 0
+PUSH 1
+ADD 
+POP 6_prime_count
+JMP label_if_end_41
+label_else_40: 
+label_if_end_41: 
+PUSH 7_potential_prime
+ADDRESS 7_potential_prime, 0
+PUSH 7_potential_prime
+VALUE 7_potential_prime, 0
+PUSH 2
+ADD 
+POP 7_potential_prime
+label_if_44: 
+PUSH 6_prime_count
+VALUE 6_prime_count, 0
+PUSH 0_MAX
+VALUE 0_MAX, 0
+CMPGT 
+label_cond_0_48: 
+JZ label_else_45
+label_if_block_47: 
+PUSH 0_MAX
+VALUE 0_MAX, 0
+PRINT "prime count reaches maximum: %d\n"
+JMP label_while_end_36
+JMP label_if_end_46
+label_else_45: 
+label_if_end_46: 
+JMP label_while_35
+label_while_end_36: 
+PUSH 6_prime_count
+VALUE 6_prime_count, 0
+RET 1
+label_if_end_32: 
+PUSH 6_prime_count
+VALUE 6_prime_count, 0
+RET 1
+RET 0
+ENDFUNC 
+FUNC @print_prime:
+PARA 11_upper_bound, 0
+VAR 11_i
+PUSH 0
+VAR 11_prime_count
+PLACEHOLDER 11_prime_count, 0
+PUSH 11_prime_count
+ADDRESS 11_prime_count, 0
+PUSH 11_upper_bound
+VALUE 11_upper_bound, 0
+RPARA 0
+$cal_prime
+POP 11_prime_count
+PUSH 11_prime_count
+VALUE 11_prime_count, 0
+PRINT "\nprime_count:%d\n"
+PUSH 11_upper_bound
+VALUE 11_upper_bound, 0
+PRINT "prime less or equal than %d are belows:\n"
+label_while_49: 
+PUSH 11_i
+VALUE 11_i, 0
+PUSH 11_prime_count
+VALUE 11_prime_count, 0
+CMPLT 
+label_cond_0_52: 
+JZ label_while_end_50
+label_while_block_51: 
+PUSH 0_p
+PUSH 11_i
+VALUE 11_i, 0
+VALUE 0_p, 0
+PRINT "%d"
+label_if_53: 
+PUSH 11_i
+VALUE 11_i, 0
+PUSH 11_prime_count
+VALUE 11_prime_count, 0
+PUSH 1
+SUB 
+CMPNE 
+label_cond_0_57: 
+JZ label_else_54
+label_if_block_56: 
+PRINT ", "
+JMP label_if_end_55
+label_else_54: 
+PRINT "\n"
+label_if_end_55: 
+PUSH 11_i
+ADDRESS 11_i, 0
+PUSH 11_i
+VALUE 11_i, 0
+PUSH 1
+ADD 
+POP 11_i
+JMP label_while_49
+label_while_end_50: 
+RET 0
+RET 0
+ENDFUNC 
+FUNC @prime_div:
+PARA 13_num, 0
+PARA 13_p, 1
+VAR 13_len
+PUSH 0
+VAR 13_i
+PUSH 2
+VAR 13_prime_count
+PUSH 0
+label_if_58: 
+PUSH 13_num
+VALUE 13_num, 0
+PUSH 2
+CMPLT 
+label_cond_0_62: 
+JZ label_else_59
+label_if_block_61: 
+PUSH 0
+RET 1
+JMP label_if_end_60
+label_else_59: 
+label_if_end_60: 
+label_while_63: 
+PUSH 13_i
+VALUE 13_i, 0
+PUSH 13_num
+VALUE 13_num, 0
+CMPLE 
+label_cond_0_66: 
+JZ label_while_end_64
+label_while_block_65: 
+label_while_67: 
+PUSH 13_num
+VALUE 13_num, 0
+PUSH 13_i
+VALUE 13_i, 0
+MOD 
+PUSH 0
+CMPEQ 
+label_cond_0_70: 
+JZ label_while_end_68
+label_while_block_69: 
+PUSH 13_num
+ADDRESS 13_num, 0
+PUSH 13_num
+VALUE 13_num, 0
+PUSH 13_i
+VALUE 13_i, 0
+DIV 
+POP 13_num
+PUSH 13_p
+PUSH 13_prime_count
+VALUE 13_prime_count, 0
+ADDRESS 13_p, 0
+PUSH 13_i
+VALUE 13_i, 0
+POP 13_p
+PUSH 13_prime_count
+ADDRESS 13_prime_count, 0
+PUSH 13_prime_count
+VALUE 13_prime_count, 0
+PUSH 1
+ADD 
+POP 13_prime_count
+JMP label_while_67
+label_while_end_68: 
+label_if_71: 
+PUSH 13_i
+VALUE 13_i, 0
+PUSH 2
+CMPEQ 
+label_cond_0_75: 
+JZ label_else_72
+label_if_block_74: 
+PUSH 13_i
+ADDRESS 13_i, 0
+PUSH 3
+POP 13_i
+JMP label_if_end_73
+label_else_72: 
+PUSH 13_i
+ADDRESS 13_i, 0
+PUSH 13_i
+VALUE 13_i, 0
+PUSH 2
+ADD 
+POP 13_i
+label_if_end_73: 
+label_if_76: 
+PUSH 13_i
+VALUE 13_i, 0
+PUSH 13_i
+VALUE 13_i, 0
+MUL 
+PUSH 13_num
+VALUE 13_num, 0
+CMPGT 
+label_cond_0_80: 
+JZ label_else_77
+label_if_block_79: 
+PUSH 13_p
+PUSH 13_prime_count
+VALUE 13_prime_count, 0
+ADDRESS 13_p, 0
+PUSH 13_num
+VALUE 13_num, 0
+POP 13_p
+PUSH 13_prime_count
+ADDRESS 13_prime_count, 0
+PUSH 13_prime_count
+VALUE 13_prime_count, 0
+PUSH 1
+ADD 
+POP 13_prime_count
+JMP label_while_end_64
+JMP label_if_end_78
+label_else_77: 
+label_if_end_78: 
+JMP label_while_63
+label_while_end_64: 
+PUSH 13_prime_count
+VALUE 13_prime_count, 0
+RET 1
+RET 0
+ENDFUNC 
+FUNC @print_prime_div:
+PARA 17_num, 0
+VAR 17_a
+PUSH 40
+ARRVAR 17_a, 1
+PLACEHOLDER 17_a, 1
+VAR 17_i
+PUSH 0
+VAR 17_prime_count
+PUSH 17_num
+VALUE 17_num, 0
+RPARA 0
+PUSH 17_a
+ADDRESS 17_a, 1
+RPARA 1
+$prime_div
+PUSH 17_num
+VALUE 17_num, 0
+PRINT "\nthe prime division of %d are:\n"
+label_while_81: 
+PUSH 17_prime_count
+VALUE 17_prime_count, 0
+PUSH 17_i
+VALUE 17_i, 0
+PUSH 1
+ADD 
+CMPGE 
+label_cond_0_84: 
+JZ label_while_end_82
+label_while_block_83: 
+label_if_85: 
+PUSH 17_prime_count
+VALUE 17_prime_count, 0
+PUSH 17_i
+VALUE 17_i, 0
+PUSH 1
+ADD 
+CMPGT 
+label_cond_0_89: 
+JZ label_else_86
+label_if_block_88: 
+PUSH 17_a
+PUSH 17_i
+VALUE 17_i, 0
+VALUE 17_a, 0
+PRINT "%d, "
+JMP label_if_end_87
+label_else_86: 
+PUSH 17_a
+PUSH 17_i
+VALUE 17_i, 0
+VALUE 17_a, 0
+PRINT "%d\n"
+label_if_end_87: 
+PUSH 17_i
+ADDRESS 17_i, 0
+PUSH 17_i
+VALUE 17_i, 0
+PUSH 1
+ADD 
+POP 17_i
+JMP label_while_81
+label_while_end_82: 
+RET 0
+RET 0
+ENDFUNC 
+MAIN main
+PRINT "20373743\n"
+PUSH 0_p
+PUSH 0
+ADDRESS 0_p, 0
+PUSH 2
+POP 0_p
+VAR 21_upper_bound
+PLACEHOLDER 21_upper_bound, 0
+PUSH 21_upper_bound
+ADDRESS 21_upper_bound, 0
+GETINT 
+POP 21_upper_bound
+PUSH 21_upper_bound
+VALUE 21_upper_bound, 0
+RPARA 0
+$print_prime
+PUSH 100
+RPARA 0
+$print_prime
+VAR 21_x
+PLACEHOLDER 21_x, 0
+PUSH 21_x
+ADDRESS 21_x, 0
+GETINT 
+POP 21_x
+PUSH 21_x
+VALUE 21_x, 0
+RPARA 0
+$print_prime_div
+PUSH 1000001
+RPARA 0
+$print_prime_div
+PUSH 0
+RET 1
+EXIT 
