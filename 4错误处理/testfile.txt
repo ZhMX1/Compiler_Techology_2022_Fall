@@ -1,0 +1,6 @@
+void func(int a[], int b)
+{
+
+func(1,2);
+
+}

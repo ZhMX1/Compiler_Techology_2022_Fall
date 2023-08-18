@@ -1,0 +1,12 @@
+void f(int a) {
+    return 1;
+}
+int h() {
+}
+void f2(int a[][3]){
+}
+int main {
+    f(h());
+    int ff[2][2] = {{0, 0}, {0, 0}};
+    f2(ff);
+}

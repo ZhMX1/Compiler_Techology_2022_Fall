@@ -1,0 +1,35 @@
+int func1(int a, int b){
+    int zzz;
+    a = b;
+}
+void func2() {
+}
+int func3(int i) {
+    i = i + 1;
+}
+int main() {
+    int zzz;
+    func2(;
+    printf("%cmoi");
+    printf("\cmoi");
+    int x[2 ;
+    x[0][0] = 1;
+    const a = 3;
+    a = 5;
+    int i = 0
+    break;
+    int i = 1;
+    y = 2;
+    {
+        int i = 2;
+    }
+    if(i == 3) {
+        continue;
+    }
+    func();
+}
+void func( {
+    int i = 1;
+    printf("%d %d", i);
+    return 2;
+}
