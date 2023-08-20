@@ -1,0 +1,472 @@
+VAR 0_hehe
+PUSH 2
+PUSH 7
+DIMVAR 0_hehe, 2
+PUSH 1
+PUSH 2
+PUSH 5
+PUSH 10
+PUSH 20
+PUSH 50
+PUSH 100
+PUSH 1
+PUSH 5
+PUSH 10
+PUSH 20
+PUSH 50
+PUSH 100
+PUSH 200
+FUNC @min:
+PARA 1_a, 0
+PARA 1_b, 0
+label_if_1: 
+PUSH 1_a
+VALUE 1_a, 0
+PUSH 1_b
+VALUE 1_b, 0
+CMPGT 
+label_cond_0_5: 
+JZ label_else_2
+label_if_block_4: 
+PUSH 1_b
+VALUE 1_b, 0
+RET 1
+JMP label_if_end_3
+label_else_2: 
+label_if_end_3: 
+PUSH 1_a
+VALUE 1_a, 0
+RET 1
+RET 0
+ENDFUNC 
+FUNC @inner1:
+PUSH 501
+PARA 2_dp, 2
+PARA 2_target, 0
+PARA 2_size, 0
+PARA 2_num, 1
+VAR 2_i
+PUSH 1
+VAR 2_j
+PUSH 1
+label_while_6: 
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 2_size
+VALUE 2_size, 0
+CMPLT 
+label_cond_0_9: 
+JZ label_while_end_7
+label_while_block_8: 
+PUSH 2_j
+ADDRESS 2_j, 0
+PUSH 1
+NEG 
+POS 
+NEG 
+POP 2_j
+label_while_10: 
+PUSH 2_j
+VALUE 2_j, 0
+PUSH 2_target
+VALUE 2_target, 0
+CMPLE 
+label_cond_0_13: 
+JZ label_while_end_11
+label_while_block_12: 
+label_if_14: 
+PUSH 2_j
+VALUE 2_j, 0
+PUSH 2_num
+PUSH 2_i
+VALUE 2_i, 0
+VALUE 2_num, 0
+CMPLT 
+label_cond_0_18: 
+JZ label_else_15
+label_if_block_17: 
+PUSH 2_dp
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 2_j
+VALUE 2_j, 0
+ADDRESS 2_dp, 0
+PUSH 2_dp
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 1
+SUB 
+PUSH 2_j
+VALUE 2_j, 0
+VALUE 2_dp, 0
+POP 2_dp
+JMP label_if_end_16
+label_else_15: 
+label_if_19: 
+PUSH 2_j
+VALUE 2_j, 0
+PUSH 2_num
+PUSH 2_i
+VALUE 2_i, 0
+VALUE 2_num, 0
+CMPEQ 
+label_cond_0_23: 
+JZ label_else_20
+label_if_block_22: 
+PUSH 2_dp
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 2_j
+VALUE 2_j, 0
+ADDRESS 2_dp, 0
+PUSH 1
+POP 2_dp
+JMP label_if_end_21
+label_else_20: 
+label_if_24: 
+PUSH 2_dp
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 1
+SUB 
+PUSH 2_j
+VALUE 2_j, 0
+VALUE 2_dp, 0
+PUSH 0
+CMPNE 
+JZ label_cond_0_28
+PUSH 2_dp
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 2_j
+VALUE 2_j, 0
+PUSH 2_num
+PUSH 2_i
+VALUE 2_i, 0
+VALUE 2_num, 0
+SUB 
+VALUE 2_dp, 0
+PUSH 0
+CMPNE 
+AND 
+label_cond_0_28: 
+JZ label_else_25
+label_if_block_27: 
+PUSH 2_dp
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 2_j
+VALUE 2_j, 0
+ADDRESS 2_dp, 0
+PUSH 2_dp
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 1
+SUB 
+PUSH 2_j
+VALUE 2_j, 0
+VALUE 2_dp, 0
+RPARA 0
+PUSH 2_dp
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 2_j
+VALUE 2_j, 0
+PUSH 2_num
+PUSH 2_i
+VALUE 2_i, 0
+VALUE 2_num, 0
+SUB 
+VALUE 2_dp, 0
+PUSH 1
+ADD 
+RPARA 0
+$min
+POP 2_dp
+JMP label_if_end_26
+label_else_25: 
+label_if_29: 
+PUSH 2_dp
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 1
+SUB 
+PUSH 2_j
+VALUE 2_j, 0
+VALUE 2_dp, 0
+PUSH 0
+CMPNE 
+label_cond_0_33: 
+JZ label_else_30
+label_if_block_32: 
+PUSH 2_dp
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 2_j
+VALUE 2_j, 0
+ADDRESS 2_dp, 0
+PUSH 2_dp
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 1
+SUB 
+PUSH 2_j
+VALUE 2_j, 0
+VALUE 2_dp, 0
+POP 2_dp
+JMP label_if_end_31
+label_else_30: 
+PUSH 2_dp
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 2_j
+VALUE 2_j, 0
+ADDRESS 2_dp, 0
+PUSH 2_dp
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 2_j
+VALUE 2_j, 0
+PUSH 2_num
+PUSH 2_i
+VALUE 2_i, 0
+VALUE 2_num, 0
+SUB 
+VALUE 2_dp, 0
+POP 2_dp
+label_if_end_31: 
+label_if_end_26: 
+label_if_end_21: 
+label_if_end_16: 
+PUSH 2_j
+ADDRESS 2_j, 0
+PUSH 2_j
+VALUE 2_j, 0
+PUSH 1
+ADD 
+POP 2_j
+JMP label_while_10
+label_while_end_11: 
+PUSH 2_i
+ADDRESS 2_i, 0
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 1
+ADD 
+POP 2_i
+JMP label_while_6
+label_while_end_7: 
+PUSH 2_dp
+PUSH 2_size
+VALUE 2_size, 0
+PUSH 1
+SUB 
+PUSH 2_target
+VALUE 2_target, 0
+VALUE 2_dp, 0
+RET 1
+RET 0
+ENDFUNC 
+FUNC @smallmoney:
+PARA 10_num, 1
+PARA 10_target, 0
+PARA 10_size, 0
+VAR 10_dp
+PUSH 11
+PUSH 501
+DIMVAR 10_dp, 2
+PLACEHOLDER 10_dp, 2
+VAR 10_i
+PUSH 1
+VAR 10_j
+PUSH 1
+PUSH 10_dp
+PUSH 0
+PUSH 0
+ADDRESS 10_dp, 0
+PUSH 0
+POP 10_dp
+label_while_34: 
+PUSH 10_i
+VALUE 10_i, 0
+PUSH 10_target
+VALUE 10_target, 0
+CMPLE 
+label_cond_0_37: 
+JZ label_while_end_35
+label_while_block_36: 
+label_if_38: 
+PUSH 10_i
+VALUE 10_i, 0
+PUSH 10_num
+PUSH 0
+VALUE 10_num, 0
+MOD 
+PUSH 0
+CMPEQ 
+label_cond_0_42: 
+JZ label_else_39
+label_if_block_41: 
+PUSH 10_dp
+PUSH 0
+PUSH 10_i
+VALUE 10_i, 0
+ADDRESS 10_dp, 0
+PUSH 10_i
+VALUE 10_i, 0
+PUSH 10_num
+PUSH 0
+VALUE 10_num, 0
+DIV 
+POP 10_dp
+JMP label_if_end_40
+label_else_39: 
+PUSH 10_dp
+PUSH 0
+PUSH 10_i
+VALUE 10_i, 0
+ADDRESS 10_dp, 0
+PUSH 0
+POP 10_dp
+label_if_end_40: 
+PUSH 10_i
+ADDRESS 10_i, 0
+PUSH 10_i
+VALUE 10_i, 0
+PUSH 1
+ADD 
+POP 10_i
+JMP label_while_34
+label_while_end_35: 
+PUSH 10_i
+ADDRESS 10_i, 0
+PUSH 1
+POP 10_i
+label_while_43: 
+PUSH 10_i
+VALUE 10_i, 0
+PUSH 10_size
+VALUE 10_size, 0
+CMPLT 
+label_cond_0_46: 
+JZ label_while_end_44
+label_while_block_45: 
+PUSH 10_dp
+PUSH 10_i
+VALUE 10_i, 0
+PUSH 0
+ADDRESS 10_dp, 0
+PUSH 0
+POP 10_dp
+PUSH 10_i
+ADDRESS 10_i, 0
+PUSH 10_i
+VALUE 10_i, 0
+PUSH 1
+ADD 
+POP 10_i
+JMP label_while_43
+label_while_end_44: 
+PUSH 10_dp
+ADDRESS 10_dp, 2
+RPARA 2
+PUSH 10_target
+VALUE 10_target, 0
+RPARA 0
+PUSH 10_size
+VALUE 10_size, 0
+RPARA 0
+PUSH 10_num
+ADDRESS 10_num, 1
+RPARA 1
+$inner1
+RET 1
+RET 0
+ENDFUNC 
+MAIN main
+VAR 15_nums
+PUSH 2
+PUSH 7
+DIMVAR 15_nums, 2
+PUSH 1
+PUSH 2
+PUSH 5
+PUSH 10
+PUSH 20
+PUSH 50
+PUSH 100
+PUSH 1
+PUSH 5
+PUSH 10
+PUSH 20
+PUSH 50
+PUSH 100
+PUSH 200
+VAR 15_i
+PUSH 0
+VAR 15_size
+PUSH 9
+VAR 15_max
+PUSH 501
+PRINT "19373487
+"
+label_while_47: 
+PUSH 15_i
+VALUE 15_i, 0
+PUSH 15_size
+VALUE 15_size, 0
+CMPLT 
+label_cond_0_50: 
+JZ label_while_end_48
+label_while_block_49: 
+VAR 16_n
+PLACEHOLDER 16_n, 0
+PUSH 16_n
+ADDRESS 16_n, 0
+GETINT 
+POP 16_n
+label_if_51: 
+PUSH 16_n
+VALUE 16_n, 0
+PUSH 15_max
+VALUE 15_max, 0
+CMPGE 
+label_cond_0_55: 
+JNZ label_if_block_54
+PUSH 16_n
+VALUE 16_n, 0
+PUSH 0
+CMPLT 
+label_cond_1_56: 
+OR 
+JZ label_else_52
+label_if_block_54: 
+PRINT "out of range!!
+"
+JMP label_if_end_53
+label_else_52: 
+PUSH 15_nums
+PUSH 0
+ADDRESS 15_nums, 1
+RPARA 1
+PUSH 16_n
+VALUE 16_n, 0
+RPARA 0
+PUSH 7
+RPARA 0
+$smallmoney
+PRINT "the result is:%d
+"
+label_if_end_53: 
+PUSH 15_i
+ADDRESS 15_i, 0
+PUSH 15_i
+VALUE 15_i, 0
+PUSH 1
+ADD 
+POP 15_i
+JMP label_while_47
+label_while_end_48: 
+PUSH 0
+RET 1
+EXIT 
